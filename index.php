@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mani Ganji - Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            perspective: 1px;
+        }
+
+        .header {
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+            z-index: -1;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            transform: scale(1.2);
+        }
+
+        .nav {
+            display: flex;
+            background-color: #f4f4f4;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .nav-item {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(37, 117, 252, 0.1);
+            color: #2575fc;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #6a11cb;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #2575fc;
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .education-item h3 {
+            color: #2575fc;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mani Ganji</h1>
+            <p>Innovative Software Engineer | Machine Learning Enthusiast | Full Stack Developer</p>
+            <div class="contact-links">
+                <a href="tel:7989518691">📞 7989518691</a>
+                <a href="mailto:ganjimani467@gmail.com">✉ ganjimani467@gmail.com</a>
+                <a href="https://www.linkedin.com/in/ganji-mani-63196224b/" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/ManiGanji" target="_blank">👨‍💻 GitHub</a>
+            </div>
+        </div>
+
+        <div class="nav">
+            <div class="nav-item active" data-section="about">About</div>
+            <div class="nav-item" data-section="experience">Experience</div>
+            <div class="nav-item" data-section="education">Education</div>
+            <div class="nav-item" data-section="skills">Skills</div>
+            <div class="nav-item" data-section="projects">Projects</div>
+        </div>
+
+        <div class="content">
+            <div id="about" class="section active">
+                <h2>Professional Profile</h2>
+                <p>A dynamic and results-driven Computer Science Engineer with a proven track record of developing innovative solutions in web development and machine learning. Adept at leveraging cutting-edge technologies to solve complex business challenges, I bring a unique blend of technical expertise, creative problem-solving, and collaborative skills. My passion lies in creating efficient, scalable applications that drive technological advancement and deliver exceptional user experiences.</p>
+            </div>
+
+            <div id="experience" class="section">
+                <h2>Professional Experience</h2>
+                <div class="experience-item">
+                    <h3>Symbiosis AI - Web Developer Intern</h3>
+                    <p><strong>Aug 2023 - Jan 2024 | Web Development</strong></p>
+                    <ul>
+                        <li>Engineered responsive web applications using a comprehensive tech stack including HTML, CSS, JavaScript, and PHP</li>
+                        <li>Architected and implemented robust MySQL database solutions, optimizing data management processes</li>
+                        <li>Collaborated seamlessly with cross-functional teams to deliver high-impact, mission-critical projects</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Yhills - Machine Learning Intern</h3>
+                    <p><strong>2024 | Machine Learning & Data Science</strong></p>
+                    <ul>
+                        <li>Developed an advanced predictive model achieving an impressive 90% accuracy in customer churn forecasting</li>
+                        <li>Implemented sophisticated data preprocessing and feature engineering techniques</li>
+                        <li>Conducted in-depth analysis of large datasets using Python libraries including Pandas, NumPy, and Matplotlib</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="education" class="section">
+                <h2>Academic Journey</h2>
+                <div class="education-item">
+                    <h3>JNTUH University College of Engineering Jagtial</h3>
+                    <p>Bachelor's in Computer Science and Engineering</p>
+                    <p><strong>Academic Performance:</strong> 8.5/10 CGPA | NAAC Accredited Institution</p>
+                </div>
+                <div class="education-item">
+                    <h3>Pragathi Girls Junior College</h3>
+                    <p>Intermediate (12th Standard)</p>
+                    <p><strong>Academic Performance:</strong> 986/1000 | Outstanding Achievement</p>
+                </div>
+                <div class="education-item">
+                    <h3>Narayana High School</h3>
+                    <p>Secondary School Certificate (10th Standard)</p>
+                    <p><strong>Academic Performance:</strong> Perfect Score of 10/10 | Exemplary Academic Excellence</p>
+                </div>
+            </div>
+
+            <div id="skills" class="section">
+                <h2>Technical Proficiencies</h2>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">DataStructures and Algorithms</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Web Development</span>
+                </div>
+            </div>
+
+            <div id="projects" class="section">
+                <h2>Innovative Projects</h2>
+                <div class="experience-item">
+                    <h3>Snag List Tracker</h3>
+                    <ul>
+                        <li>Developed a comprehensive web-based tracking system integrating multiple technologies (HTML, CSS, JavaScript, PHP, MySQL).</li>
+                        <li>Implemented advanced features, including dynamic image uploading, real-time annotation capabilities, and an intuitive UI for managing and viewing snag details.</li>
+                        <li>Optimized database queries to improve data retrieval performance by 30%, ensuring a seamless user experience.</li>
+                        <li>Deployed the application for a pilot project, achieving 95% user satisfaction based on feedback from beta users.</li>
+                        <li>Enabled efficient project tracking by reducing manual documentation efforts by 40%.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Heart Disease Prediction System</h3>
+                    <ul>
+                        <li>Designed and developed an intelligent machine learning model capable of predicting heart disease risk with 92% accuracy.</li>
+                        <li>Applied diverse algorithms, including Logistic Regression, Random Forest, and SVM, and conducted hyperparameter tuning for model optimization.</li>
+                        <li>Utilized Python libraries such as Scikit-learn, Pandas, and Matplotlib for data preprocessing, feature selection, and visualization.</li>
+                        <li>Integrated a user-friendly web interface using Flask, enabling non-technical users to easily input data and receive predictions.</li>
+                        <li>Recognized for its utility in health tech, garnering interest from healthcare professionals during a university tech expo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navItems = document.querySelectorAll('.nav-item');
+            var sections = document.querySelectorAll('.section');
+
+            navItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    navItems.forEach(function(nav) {
+                        nav.classList.remove('active');
+                    });
+                    sections.forEach(function(sec) {
+                        sec.classList.remove('active');
+                    });
+
+                    this.classList.add('active');
+                    var sectionId = this.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
